@@ -92,19 +92,19 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [signozspanmetrics/delta, batch]
+      processors: [resourcedetection, signozspanmetrics/delta, batch]
       exporters: [clickhousetraces, signozmeter]
     metrics:
       receivers: [otlp]
-      processors: [batch]
+      processors: [resourcedetection, batch]
       exporters: [signozclickhousemetrics, signozmeter]
     metrics/prometheus:
       receivers: [prometheus]
-      processors: [batch]
+      processors: [resourcedetection, batch]
       exporters: [signozclickhousemetrics, signozmeter]
     logs:
       receivers: [otlp]
-      processors: [batch]
+      processors: [resourcedetection, batch]
       exporters: [clickhouselogsexporter, signozmeter]
     metrics/meter:
       receivers: [signozmeter]
