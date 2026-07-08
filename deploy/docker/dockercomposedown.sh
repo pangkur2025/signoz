@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker compose -f docker-compose-dev.yaml down ${1}
+docker compose -f docker-compose-poc.yaml down ${1}
 
 
 
