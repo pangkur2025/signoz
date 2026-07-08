@@ -1,5 +1,5 @@
 
-name: signoz-dev
+name: signoz-test
 
 x-common: &common
   networks:
@@ -163,6 +163,7 @@ services:
     ports:
       # - "1777:1777"     # pprof extension
       - "4317:4317" # OTLP gRPC receiver
+      - "443:4317"
       - "4318:4318" # OTLP HTTP receiver
     depends_on:
       signoz:
